@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sun Leitn</title>
+    <meta charset="utf-8">  
+    <link href="css/kendo.common.min.css" rel="stylesheet" />
+    <link href="css/kendo.default.min.css" rel="stylesheet" />
+    <link href="css/kendo.mobile.all.min.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet" />
+</head>
+<body>
+    <div data-role="view" id="tabstrip-menucard" data-title="Menucard" data-layout="mobile-tabstrip">
+		<ul id="drinksList" ></ul>
+	</div>
+
+	<div data-role="view" id="tabstrip-sum" data-title="Sum" data-layout="mobile-tabstrip">  
+	    <ul data-role="listview" data-style="inset">
+	    	<li>Summe <span class="sum"></span></sum>
+	    </ul>
+	    <a class='resetButton' data-click='resetSum' data-role='button'>Reset & Save</a>
+	</div>
+
+	<div data-role="view" id="tabstrip-settings" data-title="Settings" data-layout="mobile-tabstrip">
+	    <ul id="listView"></ul>
+	</div>
+	
+	
+	
+	<div data-role="view" id="bloggerView" data-title="Bloggers" data-show="showBloggers">
+		 <ul id="bloggerList"
+		 data-source="bloggersData"
+		 data-endlessScroll="true"
+		 data-template="bloggersTemplate"
+		 data-role="listview"
+		 data-style="inset">
+		 </ul>
+	</div>
+	
+	<script id="bloggersTemplate" type="text/x-kendo-template">
+		 <a href="\#BloggerDetailsView" class="km-listview-link" data-role="listview-link">
+			 <h2>#=data.Name#</h2>
+			 <h4>#=data.Technology#</h4>
+		 </a>
+	 </script>
+
+
+	<section data-role="layout" data-id="mobile-tabstrip">
+	    <header data-role="header">
+	        <div data-role="navbar">
+	            <!-- <a class="nav-button" data-align="left" data-role="backbutton">Back</a> -->
+	            <span data-role="view-title"></span>
+	            <!-- <a data-align="right" data-role="button" class="nav-button" href="#index">Index</a> -->
+	        </div>
+	    </header>
+		<div id="content"></div>
+	    <footer data-role="footer">
+	        <div data-role="tabstrip">
+	            <a href="#tabstrip-menucard" data-icon="contacts">Menucard</a>
+	            <a href="#tabstrip-sum" data-icon="history">Sum</a>
+	            <a href="#tabstrip-settings" data-icon="settings">List (hardcoded)</a>
+	            <a href="#tabstrip-list" data-icon="settings">List JSON</a>
+	        </div>
+	    </footer>
+	</section>
+
+
+	
+
+	<script src="js/jquery.min.js"></script>
+    <script src="js/kendo.all.min.js"></script>
+    
+    
+    
+    
+    <!-- JSON List -->
+    <script>
+		var bloggersData;
+ 
+		bloggersData = new kendo.data.DataSource({
+			transport: {
+				read: {
+					url: "dataSources/listData.json",
+					data: {
+		 				Accept: "application/json"
+		 			}
+		 		}
+		 	}
+		});
+ 
+		function showBloggers(e) {
+			bloggersData.fetch();
+		}
+    </script>
+    
+    
+	<script>
+		var sharedDataSource = new kendo.data.DataSource({
+		     data: [{ title: "Star Wars: A New Hope", year: 1977
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 2", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 3", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 4", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 5", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 6", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 7", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 8", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 9", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 10", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }, {
+		     	title: "Star Wars: The Empire Strikes Back 11", year: 1980
+		     }]
+		});
+		
+		$("#listView").kendoListView({
+			dataSource: sharedDataSource,
+			template: "<li>${title} ${year}</li>",
+			click: function(e) {
+         		console.log(e.item);
+    		}
+		});
+		
+		var button = $("#button").kendoMobileButton({ icon: "stop" });
+		
+	</script>
+    
+    
+    <script>	
+    	var sum = 0;
+    	$(".sum").html(sum);
+    	var drinksData = new kendo.data.DataSource({
+		     data: [{
+		    	name: "Coffee",
+		    	price: "2.90"
+		    }, {
+		    	name: "Tea",
+		    	price: "1.90"
+		    }, {
+		    	name: "Beer",
+		    	price: "3.90"
+		    }, {
+		    	name: "Red Bull",
+		    	price: "2.90"
+		    }, {
+		    	name: "Kombucha",
+		    	price: "1.90"
+		    }]
+		});
+    
+    	$("#drinksList").kendoListView({
+		     dataSource: drinksData,
+		     template: "<li>${name} || <span class='price'>${price}</span> <a class='plusButton' data-click='calculateSum' data-role='button'>+</a> <a class='minusButton' data-click='calculateSum' data-role='button'>-</a></li>"
+		});
+		
+		function calculateSum(e) {
+			console.log(this.element);
+			if(this.element.hasClass("plusButton")) {
+				sum += parseFloat(this.element.parent().find(".price").html());
+				sum.toFixed(2);
+         		$(".sum").html(sum);
+				console.log("+"+sum);
+			} else {
+				sum -= parseFloat(this.element.parent().find(".price").html());
+				sum.toFixed(2);
+         		$(".sum").html(sum);
+				console.log("-");
+			}
+		}
+		
+		var storage = window.localStorage;
+
+		//Getting an unique ID for the Storage
+		if(!storage.count) {
+	        storage.count = 0;   
+	    }
+		storage.count++;
+    	var ID = storage.count;
+	    
+		function resetSum() {
+			storage.setItem(ID, sum);
+			console.log(storage.getItem("1")); 
+			
+			sum = 0;
+			$(".sum").html(sum);
+			storage.count++;
+    		var ID = storage.count;
+		}
+		
+		 
+		function getDate() {
+			var date = new Date(); 
+			var dd = date.getDate(); 
+		  	var mm = date.getMonth() + 1; 
+		  	var yy = date.getFullYear();
+		  	return (dd+"."+mm+"."+yy);
+		}
+		   
+		 
+	</script>
+
+    
+	<script>
+    	var app = new kendo.mobile.Application(document.body, {
+    		transition: 'slide'
+    	});
+	</script>
+</body>
+</html>

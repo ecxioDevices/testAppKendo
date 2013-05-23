@@ -1,0 +1,79 @@
+	#listView li:first-child {
+		color: red;
+	}
+	
+	#tabstrip-profile h2 {
+        display: inline-block;
+        font-size: 1.1em;+-
+        margin: 1.5em 0 0 1em;
+    }
+    #tabstrip-profile h2 span {
+        display: block;
+        clear: both;
+        font-size: 2em;
+        margin: .2em 0 0 0;
+    }
+    #tabstrip-profile img {
+        width: 5em;
+        height: 5em;
+        float: left;
+        margin: 1em;
+        -webkit-box-shadow: 0 1px 3px #333;
+        box-shadow: 0 1px 3px #333;
+        -webkit-border-radius: 8px;
+        border-radius: 8px;
+    }
+    .sales-down,
+    .sales-hold,
+    .sales-up,
+    .value {
+        float: right;
+    }
+    
+    #tabstrip-menucard { font-size: 15px; margin: 0; }
+    #tabstrip-menucard h2 { float: left; font-size: 15px; margin: 0; }
+    #tabstrip-menucard .price { font-size: 15px; margin: 0; }
+    #tabstrip-menucard .plusButton { background-color: green; float: right; }
+    #tabstrip-menucard .minusButton { background-color: red; float: right; }
+    
+    #tabstrip-sum .sum { float: right; }
+    
+    
+    .sales-up { color: green; }
+    .sales-down { color: red; }
+    .sales-hold { color: blue; }
+    .value { color: #bbb; }
+    
+    
+    /* custom styles */
+    .km-ios .km-view .km-content .km-list .km-state-active .km-listview-link {
+    background-color: rgb(140, 199, 0);
+	}
+	.km-ios .km-view .km-navbar {
+	    background-color: rgb(140, 199, 0);
+	}
+	.km-ios .km-view .km-content {
+	    background-color: rgb(51, 51, 51);
+	    background-image: none;
+	    background-image: none;
+	    background-repeat: ,repeat;
+	    background-position: ,0% 0%;
+	}
+	.km-ios .km-view .km-navbar .km-button {
+	    background-color: rgb(51, 51, 51);
+	}
+	.km-ios .km-view .km-content .km-listgroupinset .km-group-title .km-text {
+	    color: rgb(255, 255, 255);
+	}
+	.km-android .km-view .km-tabstrip {
+	    background-color: rgb(140, 199, 0);
+	}
+	.km-android .km-view .km-content .km-list .km-state-active .km-listview-link {
+	    background-color: rgb(140, 199, 0);
+	}
+	.km-android .km-view .km-navbar .km-button.km-state-active {
+	    background-color: rgb(140, 199, 0);
+	}
+	.km-android .km-view .km-tabstrip .km-state-active span.km-icon {
+	    color: rgb(140, 199, 0);
+	}
