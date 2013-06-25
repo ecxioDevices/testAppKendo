@@ -77,3 +77,17 @@
 	.km-android .km-view .km-tabstrip .km-state-active span.km-icon {
 	    color: rgb(140, 199, 0);
 	}
+@media all and (min-width:769px) {
+            .article {
+                max-width: 994px;
+                margin: 0 auto;
+                padding-top: 4em;
+                -webkit-column-count: 2;
+                -moz-column-count: 2;
+                column-count: 2;
+                -webkit-column-gap: 2em;
+                -moz-column-gap: 2em;
+                column-gap: 2em;
+            }
+
+        }

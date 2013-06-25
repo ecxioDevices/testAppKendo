@@ -10,6 +10,17 @@
 </head>
 <body>
     <div data-role="view" id="tabstrip-menucard" data-title="Menucard" data-layout="mobile-tabstrip">
+    	<div class="article">
+    		<p><img src="http://upload.wikimedia.org/wikipedia/commons/thumb/7/79/BMW_S1000_RR_Studio.JPG/800px-BMW_S1000_RR_Studio.JPG" alt="Fixed Gear bike"></p>
+
+            <h2>Bikes around the world</h2>
+
+            <p>A fixed-gear or fixed-wheel bicycle, commonly known as a fixie, is a bicycle that has a drivetrain with no freewheel mechanism. The freewheel was developed early in the history of bicycle design but the fixed-gear bicycle remained the standard track racing design. More recently the 'fixie' has become a popular alternative among mainly urban cyclists, offering the advantages of simplicity compared with the standard multi-geared bicycle.</p>
+
+            <p><small>Source: Wikipedia</small></p>
+
+		</div><!-- /article -->
+
 		<ul id="drinksList" ></ul>
 	</div>
 
@@ -23,25 +34,12 @@
 	<div data-role="view" id="tabstrip-settings" data-title="Settings" data-layout="mobile-tabstrip">
 	    <ul id="listView"></ul>
 	</div>
-	
-	
-	
-	<div data-role="view" id="bloggerView" data-title="Bloggers" data-show="showBloggers">
-		 <ul id="bloggerList"
-		 data-source="bloggersData"
-		 data-endlessScroll="true"
-		 data-template="bloggersTemplate"
-		 data-role="listview"
-		 data-style="inset">
-		 </ul>
+		
+	<div data-role="view" id="tabstrip-list" data-title="List" data-layout="mobile-tabstrip" data-show="loadJsonList">
+	    <ul id="listJson" data-source="listJsonData" data-template="listJsonTemplate"></ul>
 	</div>
 	
-	<script id="bloggersTemplate" type="text/x-kendo-template">
-		 <a href="\#BloggerDetailsView" class="km-listview-link" data-role="listview-link">
-			 <h2>#=data.Name#</h2>
-			 <h4>#=data.Technology#</h4>
-		 </a>
-	 </script>
+
 
 
 	<section data-role="layout" data-id="mobile-tabstrip">
@@ -69,27 +67,61 @@
 	<script src="js/jquery.min.js"></script>
     <script src="js/kendo.all.min.js"></script>
     
-    
-    
+
+    <script id="listJsonTemplate" type="text/x-kendo-template">
+        <img class="pullImage" src=" #=data.thumbimg# "/>
+        <h2> #=data.title # </h2>
+        <p> #=data.description # </p>
+	</script>
+
     
     <!-- JSON List -->
     <script>
-		var bloggersData;
- 
-		bloggersData = new kendo.data.DataSource({
-			transport: {
-				read: {
-					url: "dataSources/listData.json",
-					data: {
-		 				Accept: "application/json"
-		 			}
-		 		}
-		 	}
-		});
- 
-		function showBloggers(e) {
-			bloggersData.fetch();
+    /*
+    	function getData() {
+    		var data = [], idx = 0;
+	        for (var idx; idx < 10; idx) {
+	            data.push({
+	                name: "Name" + idx
+	            });
+	        }
+
+	        return data;
+    	}
+
+    	var dataSource = new kendo.data.DataSource({
+	        pageSize: 20, //defines page size. Required by the "Endless scrolling"
+	        data: getData()
+	    });
+
+	    function viewInit() {
+			$("#listJson").kendoMobileListView({
+				dataSource: dataSource,
+				template: "#: name #",
+				endlessScroll: true
+			});
 		}
+		*/
+
+
+		
+    	var listJsonData;
+		listJsonData = new kendo.data.DataSource({
+		     transport: {
+		         read: {
+		             url: "dataSources/listData.json",
+		             dataType: "json"
+		         }
+		     }
+		 });
+ 
+		function viewInit() {
+			$("#listView").kendoMobileListView({
+				dataSource: listJsonData,
+				template: "#: listJsonTemplate #"
+			});
+		}
+		
     </script>
     
     
